@@ -5,14 +5,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/star"
     tools:context=".MainActivity">
 
+
     <ImageView
-        android:id="@+id/iv_backgroumd"
+        android:id="@+id/iv_habit"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/habit_icon" />
+
+    <TextView
+        android:id="@+id/tv_habit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Simple Habit"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="#ffffff"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_habit" />
+
+    <TextView
+        android:id="@+id/tv_maintext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="180dp"
+        android:gravity="center"
+        android:text="Daily meditation \nfor busy peoble"
+        android:fontFamily="sans-serif"
+        android:textColor="#ffffff"
+        android:textSize="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_habit" />
+
+    <Button
+        android:id="@+id/btn_signin_google"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/star"
-        android:scaleType="centerCrop"/>
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="65dp"
+        android:backgroundTint="#dfd9d9"
+        android:drawableLeft="@drawable/ic_google"
+        android:drawablePadding="9dp"
+        android:text="Sign in with Google"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_maintext" />
+
+    <Button
+        android:id="@+id/btn_signin_email"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#434346"
+        android:drawableLeft="@drawable/ic_email"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_signin_google" />
+
+    <Button
+        android:id="@+id/btn_sign_facbook"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#3b5998"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:text="Sign Up"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/btn_signin_email"
+        app:layout_constraintTop_toBottomOf="@+id/btn_signin_google" />
 
 
 </android.support.constraint.ConstraintLayout>
