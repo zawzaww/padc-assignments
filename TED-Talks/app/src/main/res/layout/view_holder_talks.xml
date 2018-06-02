@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_kenrobinson"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="@dimen/margin_medium"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ken_robinson" />
+
+        <TextView
+            android:id="@+id/tv_kenrobinson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/iv_kenrobinson"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginTop="176dp"
+            android:text="Ken Roinson"
+            android:textColor="@color/primaryText"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_talk_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/iv_kenrobinson"
+            android:layout_below="@+id/tv_kenrobinson"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:text="Do schools kill creativity?"
+            android:textColor="@color/secondText"
+            android:textSize="21dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_amycuddy"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_below="@+id/iv_kenrobinson"
+            android:layout_margin="@dimen/margin_medium"
+            android:scaleType="centerCrop"
+            android:src="@drawable/amycuddy" />
+
+        <TextView
+            android:id="@+id/tv_amycuddy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_kenrobinson"
+            android:layout_marginTop="410dp"
+            android:text="Amy Cuddy"
+            android:textColor="@color/primaryText"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_talk_title2"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/iv_amycuddy"
+            android:layout_below="@+id/tv_amycuddy"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:text="Your body language may shape who you are"
+            android:textColor="@color/secondText"
+            android:textSize="19dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_elonmusk"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_below="@id/iv_amycuddy"
+            android:layout_margin="@dimen/margin_medium"
+            android:scaleType="centerCrop"
+            android:src="@drawable/elonmusk" />
+
+
+</RelativeLayout>
