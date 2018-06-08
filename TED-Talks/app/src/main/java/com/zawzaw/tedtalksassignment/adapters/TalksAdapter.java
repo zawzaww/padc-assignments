@@ -1,11 +1,11 @@
-package com.zawzaw.tedtalks.adapters;
+package com.zawzaw.tedtalksassignment.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.zawzaw.tedtalks.R;
-import com.zawzaw.tedtalks.viewholders.TalksViewHolder;
+import com.zawzaw.tedtalksassignment.R;
+import com.zawzaw.tedtalksassignment.viewholders.TalksViewHolder;
 
 public class TalksAdapter extends RecyclerView.Adapter {
     @Override

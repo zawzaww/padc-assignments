@@ -1,4 +1,4 @@
-package com.zawzaw.tedtalks;
+package com.zawzaw.tedtalksassignment;
 
 import org.junit.Test;
 

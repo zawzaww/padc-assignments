@@ -1,4 +1,4 @@
-package com.zawzaw.tedtalks;
+package com.zawzaw.tedtalksassignment.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,14 +10,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.zawzaw.tedtalks.adapters.TalksAdapter;
+import com.zawzaw.tedtalksassignment.R;
+import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class TalksListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_talks_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
