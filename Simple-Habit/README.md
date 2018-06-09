@@ -1,2 +1,3 @@
 # Simple Habit
-### PADC Android Fun-5 Assignment Project
+
+## PADC-5 Android Fun: Simple Habit Assignment Project
