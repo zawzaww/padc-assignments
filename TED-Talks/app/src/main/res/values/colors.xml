@@ -4,9 +4,9 @@
     <color name="colorPrimaryDark">#d72b36</color>
     <color name="colorAccent">#d72b36</color>
 
-    <color name="primaryText">#f2efef</color>
-    <color name="secondText">#f5f3f3</color>
+    <color name="primaryText">#747373</color>
+    <color name="secondText">#262525</color>
+    <color name="textWhite">#FFFFFF</color>
     <color name="icons">#FFFFFF</color>
-    <color name="dividers">#BDBDBD</color>
-
+    <color name="dividers">#181717</color>
 </resources>

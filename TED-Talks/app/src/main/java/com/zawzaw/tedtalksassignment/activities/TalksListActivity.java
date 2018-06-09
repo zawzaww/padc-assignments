@@ -1,9 +1,9 @@
 package com.zawzaw.tedtalksassignment.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -12,8 +12,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
+import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
 
-public class TalksListActivity extends AppCompatActivity {
+public class TalksListActivity extends BaseActivity implements TalksDelegate {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class TalksListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         RecyclerView rvTalks = findViewById(R.id.rv_talks);
-        TalksAdapter talksAdapter = new TalksAdapter();
+        TalksAdapter talksAdapter = new TalksAdapter(this);
         rvTalks.setAdapter(talksAdapter);
 
         rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,
@@ -52,6 +53,12 @@ public class TalksListActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapTalks() {
+        Intent intent = new Intent(getApplicationContext(), TalkDetailsActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -19,7 +19,7 @@
             android:layout_marginLeft="@dimen/margin_medium"
             android:layout_marginTop="176dp"
             android:text="Ken Roinson"
-            android:textColor="@color/primaryText"
+            android:textColor="@color/textWhite"
             android:textSize="15dp" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_below="@+id/tv_kenrobinson"
             android:layout_marginLeft="@dimen/margin_medium"
             android:text="Do schools kill creativity?"
-            android:textColor="@color/secondText"
+            android:textColor="@color/textWhite"
             android:textSize="21dp"
             android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
             android:layout_alignStart="@+id/tv_kenrobinson"
             android:layout_marginTop="410dp"
             android:text="Amy Cuddy"
-            android:textColor="@color/primaryText"
+            android:textColor="@color/textWhite"
             android:textSize="15dp" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:layout_below="@+id/tv_amycuddy"
             android:layout_marginLeft="@dimen/margin_medium"
             android:text="Your body language may shape who you are"
-            android:textColor="@color/secondText"
+            android:textColor="@color/textWhite"
             android:textSize="19dp"
             android:textStyle="bold" />
 
