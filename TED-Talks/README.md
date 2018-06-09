@@ -1,2 +1,3 @@
 # TED Talks
-### PADC Android Fun-5 Assignment Project
+
+## PADC-5 Android Fun: TED Talks Assignment Project
