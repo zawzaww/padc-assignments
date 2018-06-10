@@ -94,8 +94,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title_name"
-                android:layout_marginTop="@dimen/margin_small"
                 android:layout_toRightOf="@id/v_separator"
+                android:layout_marginTop="@dimen/margin_small"
+                android:paddingTop="@dimen/padding_one"
                 android:clickable="true"
                 android:orientation="horizontal">
 
@@ -103,17 +104,16 @@
                     android:id="@+id/iv_listen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_small"
                     android:src="@drawable/ic_volume_up"
+                    android:paddingTop="@dimen/padding_one"
                     android:tint="@color/secondText" />
 
                 <TextView
                     android:id="@+id/tv_listen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    android:layout_marginTop="@dimen/margin_one"
                     android:text="Listen"
+                    android:paddingTop="@dimen/padding_two"
                     android:textColor="@color/secondText"
                     android:textSize="@dimen/text_regular" />
             </LinearLayout>
@@ -177,8 +177,8 @@
                 android:textColor="@color/secondText"
                 android:textSize="@dimen/text_regular_3x" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/civ_profile_pic"
+            <ImageView
+                android:id="@+id/iv_profile_pic"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignLeft="@+id/tv_about_speaker"
@@ -190,9 +190,9 @@
                 android:id="@+id/tv_author_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/civ_profile_pic"
+                android:layout_alignTop="@+id/iv_profile_pic"
                 android:layout_marginLeft="@dimen/margin_medium"
-                android:layout_toRightOf="@+id/civ_profile_pic"
+                android:layout_toRightOf="@+id/iv_profile_pic"
                 android:text="Ken Robinson"
                 android:textColor="@color/secondText"
                 android:textSize="@dimen/text_regular_2x"
@@ -205,7 +205,7 @@
                 android:layout_alignLeft="@id/tv_author_name"
                 android:layout_below="@+id/tv_author_name"
                 android:layout_marginTop="@dimen/margin_small"
-                android:layout_toRightOf="@+id/civ_profile_pic"
+                android:layout_toRightOf="@+id/iv_profile_pic"
                 android:text="Britist Author / Speaker"
                 android:textColor="@color/secondText"
                 android:textSize="@dimen/text_regular" />
@@ -227,8 +227,7 @@
                 android:layout_height="@dimen/divider_height"
                 android:layout_below="@+id/tv_author_description"
                 android:layout_marginTop="@dimen/margin_medium_2"
-                android:background="@color/dividers"
-                />
+                android:background="@color/dividers" />
 
             <TextView
                 android:id="@+id/tv_watch_next"

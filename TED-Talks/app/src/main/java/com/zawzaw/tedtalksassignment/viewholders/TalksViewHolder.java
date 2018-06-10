@@ -16,7 +16,6 @@ public class TalksViewHolder extends RecyclerView.ViewHolder {
             @Override
             public void onClick(View v) {
                 mTalksDelegate.onTapTalks();
-
             }
         });
     }
