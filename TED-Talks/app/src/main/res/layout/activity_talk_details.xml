@@ -237,14 +237,14 @@
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:text="Watch next"
                 android:textColor="@color/secondText"
-                android:textSize="@dimen/text_regular_3x" />
+                android:textSize="@dimen/text_heading_1x" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_watch_next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_watch_next"
-                android:layout_marginTop="@dimen/margin_small" />
+                android:layout_marginTop="@dimen/margin_medium" />
         </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>

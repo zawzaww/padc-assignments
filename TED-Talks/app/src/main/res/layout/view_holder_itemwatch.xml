@@ -1,19 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iv_watch_image"
+    <RelativeLayout
+        android:id="@+id/rl_container_image"
         android:layout_width="120dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/elonmusk" />
+        android:layout_height="80dp">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_watch_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/elonmusk"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small"/>
+
+        <TextView
+            android:id="@+id/tv_watch_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="01:15"
+            android:textColor="@color/textWhite"
+            android:textSize="@dimen/text_small"
+            android:layout_alignParentRight="true"
+            android:background="@color/bgBlack"
+            android:layout_marginRight="@dimen/margin_small"
+            android:layout_marginBottom="@dimen/margin_small" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_watch_authorname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Elon Musk"
+        android:layout_toRightOf="@+id/rl_container_image"
+        android:textSize="@dimen/text_regular"
+        android:textColor="@color/primaryText"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_alignTop="@+id/rl_container_image"
+        android:layout_marginTop="@dimen/margin_small"/>
+
+    <TextView
+        android:id="@+id/tv_watch_talktitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/talk_elonmusk"
+        android:textColor="@color/secondText"
+        android:layout_alignLeft="@+id/tv_watch_authorname"
+        android:layout_below="@+id/tv_watch_authorname"
+        android:layout_marginRight="@dimen/margin_medium_3"
+        android:textStyle="bold"
+        android:textSize="@dimen/text_regular_2x" />
+
+    <ImageView
+        android:id="@+id/iv_watch_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more_black"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tv_watch_authorname"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_small" />
+
+</RelativeLayout>
