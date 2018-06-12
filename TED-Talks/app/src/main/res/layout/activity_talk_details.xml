@@ -94,26 +94,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_title_name"
-                android:layout_toRightOf="@id/v_separator"
                 android:layout_marginTop="@dimen/margin_small"
-                android:paddingTop="@dimen/padding_one"
+                android:layout_toRightOf="@id/v_separator"
                 android:clickable="true"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/padding_one">
 
                 <ImageView
                     android:id="@+id/iv_listen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_volume_up"
                     android:paddingTop="@dimen/padding_one"
+                    android:src="@drawable/ic_volume_up"
                     android:tint="@color/secondText" />
 
                 <TextView
                     android:id="@+id/tv_listen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Listen"
                     android:paddingTop="@dimen/padding_two"
+                    android:text="Listen"
                     android:textColor="@color/secondText"
                     android:textSize="@dimen/text_regular" />
             </LinearLayout>

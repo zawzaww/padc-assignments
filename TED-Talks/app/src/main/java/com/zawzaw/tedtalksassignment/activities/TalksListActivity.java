@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
 import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
@@ -27,8 +28,7 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
         TalksAdapter talksAdapter = new TalksAdapter(this);
         rvTalks.setAdapter(talksAdapter);
 
-        rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL,
-                false));
+        rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

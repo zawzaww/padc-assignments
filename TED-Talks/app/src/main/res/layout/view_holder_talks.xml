@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="@dimen/img_height">
 
     <ImageView
-        android:id="@+id/iv_kenrobinson"
+        android:id="@+id/iv_speaker_img"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_height="@dimen/img_height"
+        android:layout_margin="@dimen/margin_small"
         android:scaleType="centerCrop"
         android:src="@drawable/ken_robinson" />
 
     <TextView
-        android:id="@+id/tv_kenrobinson"
+        android:id="@+id/tv_speaker_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/iv_kenrobinson"
-        android:layout_marginLeft="@dimen/margin_medium"
-        android:layout_marginTop="176dp"
-        android:text="Ken Roinson"
-        android:textColor="@color/textWhite"
-        android:textSize="15dp" />
+        android:layout_above="@+id/tv_talk_title"
+        android:layout_alignLeft="@id/tv_talk_title"
+        android:text="Ken Robinson"
+        android:textColor="@color/speakerName"
+        android:textSize="@dimen/text_regular_3x" />
 
     <TextView
         android:id="@+id/tv_talk_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/iv_kenrobinson"
-        android:layout_below="@+id/tv_kenrobinson"
-        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="@dimen/margin_medium_2"
+        android:layout_marginLeft="@dimen/margin_medium_2"
         android:text="Do schools kill creativity?"
         android:textColor="@color/textWhite"
-        android:textSize="21dp"
+        android:textSize="@dimen/text_heading_1x"
         android:textStyle="bold" />
 
 </RelativeLayout>

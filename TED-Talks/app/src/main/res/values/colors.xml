@@ -9,5 +9,6 @@
     <color name="textWhite">#FFFFFF</color>
     <color name="icons">#FFFFFF</color>
     <color name="dividers">#181717</color>
+    <color name="speakerName">#e2d8d8</color>
     <color name="bgBlack">#000000</color>
 </resources>
