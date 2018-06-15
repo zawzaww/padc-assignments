@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
+import com.zawzaw.tedtalksassignment.data.models.TalksModel;
 import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
 
 public class TalksListActivity extends BaseActivity implements TalksDelegate {
@@ -29,6 +30,8 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
         rvTalks.setAdapter(talksAdapter);
 
         rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+
+        TalksModel.getObjInstanceTalk().loadTalksList();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
