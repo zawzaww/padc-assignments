@@ -1,7 +1,9 @@
 package com.zawzaw.tedtalksassignment.delegates;
 
+import com.zawzaw.tedtalksassignment.data.vos.TalksVO;
+
 public interface TalksDelegate {
 
-    void onTapTalks();
+    void onTapTalks(TalksVO talks);
 
 }

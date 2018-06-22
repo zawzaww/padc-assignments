@@ -36,7 +36,7 @@ public class TalksViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTalksDelegate.onTapTalks();
+                mTalksDelegate.onTapTalks(mTalks);
             }
         });
     }

@@ -19,6 +19,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
 import com.zawzaw.tedtalksassignment.data.models.TalksModel;
+import com.zawzaw.tedtalksassignment.data.vos.TalksVO;
 import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
 import com.zawzaw.tedtalksassignment.events.SuccessGetTalksEvent;
 
@@ -79,8 +80,9 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
     }
 
     @Override
-    public void onTapTalks() {
+    public void onTapTalks(TalksVO talks) {
         Intent intent = new Intent(getApplicationContext(), TalkDetailsActivity.class);
+        intent.putExtra("talksId", talks.getTalkId());
         startActivity(intent);
     }
 

@@ -21,7 +21,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/iv_talk_backdrop"
+                android:id="@+id/iv_talk_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
@@ -50,7 +50,7 @@
             android:padding="@dimen/margin_medium_2">
 
             <TextView
-                android:id="@+id/tv_talker_name"
+                android:id="@+id/tv_speaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ken Robinson"
@@ -58,10 +58,10 @@
                 android:textSize="@dimen/text_regular_3x" />
 
             <TextView
-                android:id="@+id/tv_title_name"
+                android:id="@+id/tv_talk_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_talker_name"
+                android:layout_below="@+id/tv_speaker"
                 android:layout_marginTop="@dimen/margin_small"
                 android:text="Do schools kill creativity?"
                 android:textColor="@color/secondText"
@@ -69,10 +69,10 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_time"
+                android:id="@+id/tv_talk_duration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_title_name"
+                android:layout_below="@id/tv_talk_title"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:text="13:00"
                 android:textColor="@color/primaryText"
@@ -82,18 +82,18 @@
                 android:id="@+id/v_separator"
                 android:layout_width="1dp"
                 android:layout_height="15dp"
-                android:layout_alignTop="@+id/tv_time"
+                android:layout_alignTop="@+id/tv_talk_duration"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
                 android:layout_marginTop="@dimen/margin_small"
-                android:layout_toRightOf="@+id/tv_time"
+                android:layout_toRightOf="@+id/tv_talk_duration"
                 android:background="@color/dividers" />
 
             <LinearLayout
                 android:id="@+id/ll_btn_listen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_title_name"
+                android:layout_below="@+id/tv_talk_title"
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_toRightOf="@id/v_separator"
                 android:clickable="true"
@@ -154,7 +154,7 @@
                 android:src="@drawable/ic_share_black" />
 
             <TextView
-                android:id="@+id/tv_talk_content"
+                android:id="@+id/tv_talk_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/btn_add_playlist"
@@ -170,8 +170,8 @@
                 android:id="@+id/tv_about_speaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/tv_talk_content"
-                android:layout_below="@+id/tv_talk_content"
+                android:layout_alignLeft="@+id/tv_talk_description"
+                android:layout_below="@+id/tv_talk_description"
                 android:layout_marginTop="@dimen/margin_medium_2"
                 android:text="About the speaker"
                 android:textColor="@color/secondText"
