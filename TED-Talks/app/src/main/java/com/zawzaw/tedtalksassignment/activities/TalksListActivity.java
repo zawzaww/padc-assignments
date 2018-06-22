@@ -7,16 +7,24 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.TalksAdapter;
 import com.zawzaw.tedtalksassignment.data.models.TalksModel;
 import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
+import com.zawzaw.tedtalksassignment.events.SuccessGetTalksEvent;
 
 public class TalksListActivity extends BaseActivity implements TalksDelegate {
+
+    private TalksAdapter mTalksAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +34,10 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
         setSupportActionBar(toolbar);
 
         RecyclerView rvTalks = findViewById(R.id.rv_talks);
-        TalksAdapter talksAdapter = new TalksAdapter(this);
-        rvTalks.setAdapter(talksAdapter);
-
-        rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        mTalksAdapter = new TalksAdapter(this);
+        rvTalks.setAdapter(mTalksAdapter);
+        rvTalks.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));
 
         TalksModel.getObjInstanceTalk().loadTalksList();
 
@@ -41,6 +49,18 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -62,6 +82,13 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
     public void onTapTalks() {
         Intent intent = new Intent(getApplicationContext(), TalkDetailsActivity.class);
         startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSuccessGetTalks(SuccessGetTalksEvent event) {
+        Log.d("OnSuccessGetTalks", "Success Talks List : " + event.getTalksList().size());
+
+        mTalksAdapter.setTalksList(event.getTalksList());
     }
 
 }

@@ -1,10 +1,11 @@
-package com.zawzaw.tedtalksassignment.network;
+package com.zawzaw.tedtalksassignment.network.dataagents;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -19,6 +20,10 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.zawzaw.tedtalksassignment.events.ApiErrorEvent;
+import com.zawzaw.tedtalksassignment.events.SuccessGetTalksEvent;
+import com.zawzaw.tedtalksassignment.network.responses.GetTalksResponse;
 import com.zawzaw.tedtalksassignment.utils.TalksConstants;
 
 /**
@@ -105,11 +110,20 @@ public class HttpUrlConnectionDataAgent implements TalksDataAgent {
 
             @Override
             protected void onPostExecute(String responseString) {
-
                 super.onPostExecute(responseString);
-                if (responseString != null) {
 
+                Gson gson = new Gson();
+                GetTalksResponse talksResponse = gson.fromJson(responseString, GetTalksResponse.class);
+                Log.d("OnPostExecute", "Talks List Size : " + talksResponse.getmTalks().size());
+
+                if (talksResponse.isResponseOk()) {
+                    SuccessGetTalksEvent event = new SuccessGetTalksEvent(talksResponse.getmTalks());
+                    EventBus.getDefault().post(event);
+                } else {
+                    ApiErrorEvent errorEvent = new ApiErrorEvent(talksResponse.getMessage());
+                    EventBus.getDefault().post(errorEvent);
                 }
+
             }
 
         }.execute();

@@ -1,4 +1,4 @@
-package com.zawzaw.tedtalksassignment.network;
+package com.zawzaw.tedtalksassignment.network.dataagents;
 
 /**
  * Created by zawzaw on 15/06/2018.

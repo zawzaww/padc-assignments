@@ -1,7 +1,7 @@
 package com.zawzaw.tedtalksassignment.data.models;
 
-import com.zawzaw.tedtalksassignment.network.HttpUrlConnectionDataAgent;
-import com.zawzaw.tedtalksassignment.network.TalksDataAgent;
+import com.zawzaw.tedtalksassignment.network.dataagents.HttpUrlConnectionDataAgent;
+import com.zawzaw.tedtalksassignment.network.dataagents.TalksDataAgent;
 
 /**
  * Created by zawzaw on 15/06/2018.
