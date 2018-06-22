@@ -69,7 +69,7 @@ public class HttpUrlConnectionDataAgent implements TalksDataAgent {
 
                     List<NameValuePair> params = new ArrayList<>();
                     params.add(new BasicNameValuePair(TalksConstants.PARAM_ACCESS_TOKEN, accessToken));
-                    params.add(new BasicNameValuePair(TalksConstants.PARM_PAGE, String.valueOf(page)));
+                    params.add(new BasicNameValuePair(TalksConstants.PARAM_PAGE, String.valueOf(page)));
 
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));

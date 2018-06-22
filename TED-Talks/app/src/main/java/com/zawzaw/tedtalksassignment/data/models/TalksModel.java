@@ -1,6 +1,6 @@
 package com.zawzaw.tedtalksassignment.data.models;
 
-import com.zawzaw.tedtalksassignment.network.dataagents.HttpUrlConnectionDataAgent;
+import com.zawzaw.tedtalksassignment.network.dataagents.OkHttpDataAgent;
 import com.zawzaw.tedtalksassignment.network.dataagents.TalksDataAgent;
 
 /**
@@ -16,7 +16,8 @@ public class TalksModel {
     private static TalksModel objInstanceTalk;
 
     private TalksModel() {
-        mDataAgent = HttpUrlConnectionDataAgent.getObjInstanceHttp();
+        // mDataAgent = HttpUrlConnectionDataAgent.getObjInstanceHttp();
+        mDataAgent = OkHttpDataAgent.getObjInstance();
     }
 
     public static TalksModel getObjInstanceTalk() {
