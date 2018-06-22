@@ -65,7 +65,7 @@
                 android:layout_marginTop="@dimen/margin_small"
                 android:text="Do schools kill creativity?"
                 android:textColor="@color/secondText"
-                android:textSize="@dimen/text_heading_2x"
+                android:textSize="@dimen/text_heading_1x"
                 android:textStyle="bold" />
 
             <TextView
@@ -206,7 +206,7 @@
                 android:layout_below="@+id/tv_author_name"
                 android:layout_marginTop="@dimen/margin_small"
                 android:layout_toRightOf="@+id/iv_profile_pic"
-                android:text="Britist Author / Speaker"
+                android:text="Author / Speaker"
                 android:textColor="@color/secondText"
                 android:textSize="@dimen/text_regular" />
 
@@ -217,7 +217,6 @@
                 android:layout_alignLeft="@+id/tv_author_occupation"
                 android:layout_below="@+id/tv_author_occupation"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:text="@string/author_description"
                 android:textColor="@color/secondText"
                 android:textSize="@dimen/text_regular" />
 
