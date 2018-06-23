@@ -11,6 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import com.bumptech.glide.request.RequestOptions;
 import com.zawzaw.tedtalksassignment.R;
 import com.zawzaw.tedtalksassignment.adapters.WatchAdapter;
 import com.zawzaw.tedtalksassignment.data.models.TalksModel;
@@ -41,14 +42,14 @@ public class TalkDetailsActivity extends BaseActivity {
         int talkId = getIntent().getIntExtra("talksId", 0);
         Log.d("TalkDetailsActiviy", "talksId : " + talkId);
 
-        TalksVO talks = TalksModel.getObjInstanceTalk().getTalksbyId(talkId);
-        bindData(talks);
-
         RecyclerView rvWatchNext = findViewById(R.id.rv_watch_next);
         WatchAdapter watchAdapter = new WatchAdapter();
         rvWatchNext.setAdapter(watchAdapter);
         rvWatchNext.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
+
+        TalksVO talks = TalksModel.getObjInstanceTalk().getTalksbyId(talkId);
+        bindData(talks);
 
     }
 
@@ -73,6 +74,7 @@ public class TalkDetailsActivity extends BaseActivity {
         // Speaker Profile Image.
         GlideApp.with(ivSpeakerProfileImage.getContext())
                 .load(talks.getImageUrl())
+                .apply(RequestOptions.circleCropTransform())
                 .into(ivSpeakerProfileImage);
 
         // About the speaker
