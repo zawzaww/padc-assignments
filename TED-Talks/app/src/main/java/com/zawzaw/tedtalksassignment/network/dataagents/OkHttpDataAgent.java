@@ -12,7 +12,13 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import com.google.gson.Gson;
+import com.zawzaw.tedtalksassignment.events.ApiErrorEvent;
+import com.zawzaw.tedtalksassignment.events.SuccessGetTalksEvent;
+import com.zawzaw.tedtalksassignment.network.responses.GetTalksResponse;
 import com.zawzaw.tedtalksassignment.utils.TalksConstants;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by zawzaw on 22/06/2018.
@@ -72,9 +78,20 @@ public class OkHttpDataAgent implements TalksDataAgent {
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
+            protected void onPostExecute(String responseString) {
+                super.onPostExecute(responseString);
 
+                Gson gson = new Gson();
+                GetTalksResponse talksResponse = gson.fromJson(responseString, GetTalksResponse.class);
+                Log.d("OnPostExecute", "Talks List Size : " + talksResponse.getmTalks().size());
+
+                if (talksResponse.isResponseOk()) {
+                    SuccessGetTalksEvent event = new SuccessGetTalksEvent(talksResponse.getmTalks());
+                    EventBus.getDefault().post(event);
+                } else {
+                    ApiErrorEvent errorEvent = new ApiErrorEvent(talksResponse.getMessage());
+                    EventBus.getDefault().post(errorEvent);
+                }
             }
 
         }.execute();

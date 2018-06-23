@@ -17,6 +17,7 @@ import com.zawzaw.tedtalksassignment.adapters.WatchAdapter;
 import com.zawzaw.tedtalksassignment.data.models.TalksModel;
 import com.zawzaw.tedtalksassignment.data.vos.TalksVO;
 import com.zawzaw.tedtalksassignment.utils.GlideApp;
+import com.zawzaw.tedtalksassignment.utils.TalksConstants;
 
 public class TalkDetailsActivity extends BaseActivity {
 
@@ -39,7 +40,7 @@ public class TalkDetailsActivity extends BaseActivity {
 
         ButterKnife.bind(this, this);
 
-        int talkId = getIntent().getIntExtra("talksId", 0);
+        int talkId = getIntent().getIntExtra(TalksConstants.TAlKS_ID, 0);
         Log.d("TalkDetailsActiviy", "talksId : " + talkId);
 
         RecyclerView rvWatchNext = findViewById(R.id.rv_watch_next);

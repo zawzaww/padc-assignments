@@ -22,6 +22,7 @@ import com.zawzaw.tedtalksassignment.data.models.TalksModel;
 import com.zawzaw.tedtalksassignment.data.vos.TalksVO;
 import com.zawzaw.tedtalksassignment.delegates.TalksDelegate;
 import com.zawzaw.tedtalksassignment.events.SuccessGetTalksEvent;
+import com.zawzaw.tedtalksassignment.utils.TalksConstants;
 
 public class TalksListActivity extends BaseActivity implements TalksDelegate {
 
@@ -82,7 +83,7 @@ public class TalksListActivity extends BaseActivity implements TalksDelegate {
     @Override
     public void onTapTalks(TalksVO talks) {
         Intent intent = new Intent(getApplicationContext(), TalkDetailsActivity.class);
-        intent.putExtra("talksId", talks.getTalkId());
+        intent.putExtra(TalksConstants.TAlKS_ID, talks.getTalkId());
         startActivity(intent);
     }
 
