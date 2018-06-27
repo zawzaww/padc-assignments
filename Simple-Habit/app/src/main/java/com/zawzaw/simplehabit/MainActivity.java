@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Window window = getWindow();
         WindowManager.LayoutParams winParams = window.getAttributes();
         winParams.flags &= ~WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
