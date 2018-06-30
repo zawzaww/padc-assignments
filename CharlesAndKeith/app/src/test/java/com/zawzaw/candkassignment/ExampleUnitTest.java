@@ -1,4 +1,4 @@
-package com.zawzaw.padc.charlesandkeith;
+package com.zawzaw.candkassignment;
 
 import org.junit.Test;
 

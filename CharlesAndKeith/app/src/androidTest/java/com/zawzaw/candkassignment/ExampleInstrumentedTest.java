@@ -1,4 +1,4 @@
-package com.zawzaw.padc.charlesandkeith;
+package com.zawzaw.candkassignment;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.zawzaw.padc.charlesandkeith", appContext.getPackageName());
+        assertEquals("com.padc.charleskeith", appContext.getPackageName());
     }
 }
