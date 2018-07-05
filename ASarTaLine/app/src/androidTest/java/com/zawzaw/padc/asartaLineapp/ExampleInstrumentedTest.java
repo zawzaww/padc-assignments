@@ -1,4 +1,4 @@
-package com.zawzaw.padc.asartaline;
+package com.zawzaw.padc.asartaLineapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.zawzaw.padc.asartaline", appContext.getPackageName());
+        assertEquals("com.zawzaw.padc.asartaLineapp", appContext.getPackageName());
     }
 }
