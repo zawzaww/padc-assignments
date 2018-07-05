@@ -4,44 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".activities.MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/rl_container"
+    <FrameLayout
+        android:id="@+id/fl_container"
         android:layout_width="match_parent"
-        android:layout_height="230dp">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ImageView
-            android:id="@+id/iv_header_image"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_asartaline_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/header_image_food" />
+            android:fitsSystemWindows="true" />
 
-        <TextView
-            android:id="@+id/tv_main_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/tv_sub_title"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:text="@string/food_main_title"
-            android:textColor="@color/secondText"
-            android:textSize="@dimen/text_heading_1x"
-            android:textStyle="bold"
-            android:typeface="sans" />
-
-        <TextView
-            android:id="@+id/tv_sub_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_main_title"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/margin_medium"
-            android:text="@string/food_sub_title"
-            android:textColor="@color/secondText"
-            android:textSize="@dimen/text_regular_2x" />
-
-    </RelativeLayout>
-
+    </FrameLayout>
 
 </android.support.design.widget.CoordinatorLayout>
