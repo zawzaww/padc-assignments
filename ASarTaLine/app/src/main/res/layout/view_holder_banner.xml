@@ -73,7 +73,7 @@
                     android:src="@drawable/ic_location_white" />
 
                 <EditText
-                    android:id="@+id/et_search_bar"
+                    android:id="@+id/et_search_box"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
@@ -82,11 +82,12 @@
                     android:imeOptions="actionSearch"
                     android:cursorVisible="false"
                     android:inputType="text"
+                    android:keyboardNavigationCluster="false"
                     android:paddingLeft="@dimen/margin_medium_3"
                     android:textSize="@dimen/text_regular_3x" />
 
                 <ImageView
-                    android:id="@+id/iv_searchbtn"
+                    android:id="@+id/iv_search_btn"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

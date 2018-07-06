@@ -1,5 +1,6 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">ASarTaLine</string>
     <string name="food_main_title">Google Afternoon, ZawZaw</string>
     <string name="food_sub_title">It\'s time for lunch</string>
+    <string name="format_price">Cost<xliff:g id="min">%d</xliff:g>KS - <xliff:g id="max">%d</xliff:g>KS for one. </string>
 </resources>
