@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_large">
+
+    <LinearLayout
+        android:id="@+id/ll_container_icons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <ImageView
+            android:id="@+id/iv_chinese_food"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:src="@drawable/ic_chinese_food" />
+
+        <ImageView
+            android:id="@+id/iv_pizza"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_pizza_food" />
+
+        <ImageView
+            android:id="@+id/iv_burger"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_burger_food" />
+
+        <ImageView
+            android:id="@+id/iv_donut"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_weight="1"
+            android:src="@drawable/ic_donut_food" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_container_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_container_icons"
+        android:layout_marginLeft="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/tv_chinese_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xlarge"
+            android:layout_weight="1"
+            android:text="China"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_text"
+            android:textSize="@dimen/text_regular" />
+
+        <TextView
+            android:id="@+id/tv_pizza_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_xlarge"
+            android:layout_weight="1"
+            android:text="Pizza"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_text"
+            android:textSize="@dimen/text_regular" />
+
+        <TextView
+            android:id="@+id/tv_burger_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            android:layout_weight="1"
+            android:text="Burger"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_text"
+            android:textSize="@dimen/text_regular" />
+
+        <TextView
+            android:id="@+id/tv_donut_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_medium_3"
+            android:layout_weight="1"
+            android:text="Donut"
+            android:textAllCaps="true"
+            android:textColor="@color/icons_text"
+            android:textSize="@dimen/text_regular" />
+    </LinearLayout>
+
+</RelativeLayout>

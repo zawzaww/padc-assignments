@@ -8,11 +8,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import com.zawzaw.padc.asartaLineapp.R;
-import com.zawzaw.padc.asartaLineapp.adapters.MainAdapter;
+import com.zawzaw.padc.asartaLineapp.adapters.FoodAdapter;
 
 public class MainActivity extends BaseActivity {
 
-    private MainAdapter mAdapter;
+    private FoodAdapter mAdapter;
 
     @BindView(R.id.rv_asartaline_main)
     RecyclerView rvASarTaLine;
@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this, this);
 
-        mAdapter = new MainAdapter();
+        mAdapter = new FoodAdapter();
         rvASarTaLine.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
         rvASarTaLine.setAdapter(mAdapter);

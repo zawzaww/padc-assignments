@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:src="@drawable/header_image_food" />
+            android:src="@drawable/placeholder_banner_img" />
 
         <TextView
             android:id="@+id/tv_banner_maintitle"
@@ -23,7 +23,7 @@
             android:layout_above="@+id/tv_banner_subtitle"
             android:layout_marginLeft="@dimen/margin_medium"
             android:text="@string/food_main_title"
-            android:textColor="@color/secondText"
+            android:textColor="@color/secondary_text"
             android:textSize="@dimen/text_heading_1x"
             android:textStyle="bold"
             android:typeface="sans" />
@@ -36,7 +36,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="51dp"
             android:text="@string/food_sub_title"
-            android:textColor="@color/secondText"
+            android:textColor="@color/secondary_text"
             android:textSize="@dimen/text_regular_2x" />
     </RelativeLayout>
 
@@ -68,7 +68,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/colorPrimary"
+                    android:background="@color/color_primary"
                     android:padding="15dp"
                     android:src="@drawable/ic_location_white" />
 
