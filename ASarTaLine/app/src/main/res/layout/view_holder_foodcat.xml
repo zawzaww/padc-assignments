@@ -15,7 +15,6 @@
             android:id="@+id/iv_chinese_food"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginLeft="@dimen/margin_medium"
             android:layout_weight="1"
             android:src="@drawable/ic_chinese_food" />
 
@@ -37,7 +36,6 @@
             android:id="@+id/iv_donut"
             android:layout_width="0dp"
             android:layout_height="35dp"
-            android:layout_marginRight="@dimen/margin_medium"
             android:layout_weight="1"
             android:src="@drawable/ic_donut_food" />
     </LinearLayout>
@@ -47,7 +45,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll_container_icons"
-        android:layout_marginLeft="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_medium"
         android:orientation="horizontal"
         android:weightSum="4">
@@ -56,9 +53,9 @@
             android:id="@+id/tv_chinese_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_xlarge"
             android:layout_weight="1"
             android:text="China"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/icons_text"
             android:textSize="@dimen/text_regular" />
@@ -67,9 +64,9 @@
             android:id="@+id/tv_pizza_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_xlarge"
             android:layout_weight="1"
             android:text="Pizza"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/icons_text"
             android:textSize="@dimen/text_regular" />
@@ -78,9 +75,9 @@
             android:id="@+id/tv_burger_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium_2"
             android:layout_weight="1"
             android:text="Burger"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/icons_text"
             android:textSize="@dimen/text_regular" />
@@ -89,12 +86,25 @@
             android:id="@+id/tv_donut_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium_3"
             android:layout_weight="1"
             android:text="Donut"
+            android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/icons_text"
             android:textSize="@dimen/text_regular" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_offers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/ll_container_text"
+        android:layout_below="@+id/ll_container_text"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="@dimen/margin_xlarge"
+        android:text="Offers"
+        android:textAllCaps="true"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/text_regular_3x" />
 
 </RelativeLayout>

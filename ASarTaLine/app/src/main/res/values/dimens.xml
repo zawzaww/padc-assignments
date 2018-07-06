@@ -6,6 +6,7 @@
     <dimen name="margin_medium_2">16dp</dimen>
     <dimen name="margin_medium_3">20dp</dimen>
     <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_largez">28dp</dimen>
     <dimen name="margin_xlarge">32dp</dimen>
     <dimen name="margin_xxlarge">48dp</dimen>
 
