@@ -42,7 +42,7 @@
                     android:layout_toRightOf="@id/iv_offer_food"
                     android:text="Go Pizza"
                     android:textColor="@color/primary_text"
-                    android:textSize="@dimen/text_regular_3x"
+                    android:textSize="@dimen/text_regular_2x"
                     android:textStyle="bold" />
 
                 <org.mmtextview.components.MMTextView
@@ -51,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/tv_food_title"
                     android:layout_below="@+id/tv_food_title"
+                    android:layout_marginTop="@dimen/margin_medium"
                     android:text="Pizza food, American"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/text_regular" />
@@ -61,6 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/tv_food_subtitle"
                     android:layout_below="@+id/tv_food_subtitle"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:text="Cost $15 for one"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/text_regular" />
@@ -91,7 +93,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_small"
             android:background="@drawable/ic_corner"
             android:text="4.5"
             android:textAlignment="center"

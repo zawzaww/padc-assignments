@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 import com.zawzaw.padc.asartaLineapp.R;
 import com.zawzaw.padc.asartaLineapp.data.vos.WarDeeVO;
 import com.zawzaw.padc.asartaLineapp.delegates.WarDeeDelegate;
 import com.zawzaw.padc.asartaLineapp.utils.GlideApp;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * Created by zawzaw on 06/07/2018.
