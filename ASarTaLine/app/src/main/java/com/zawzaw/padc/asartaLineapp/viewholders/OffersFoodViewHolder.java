@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.zawzaw.padc.asartaLineapp.R;
 import com.zawzaw.padc.asartaLineapp.data.vos.WarDeeVO;
 import com.zawzaw.padc.asartaLineapp.delegates.WarDeeDelegate;
+import com.zawzaw.padc.asartaLineapp.utils.GlideApp;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,6 +57,11 @@ public class OffersFoodViewHolder extends BaseViewHolder {
     public void bindData(WarDeeVO warDee) {
         super.bindData(warDee);
         mWarDee = warDee;
+
+        GlideApp.with(ivOfferFood.getContext())
+                .load(mWarDee.getImages().get(0))
+                .centerCrop()
+                .into(ivOfferFood);
 
         tvFoodtitle.setText(mWarDee.getName());
 

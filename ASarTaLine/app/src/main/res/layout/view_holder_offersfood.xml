@@ -33,7 +33,7 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/placeholder_pizza" />
 
-                <TextView
+                <org.mmtextview.components.MMTextView
                     android:id="@+id/tv_food_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                     android:textSize="@dimen/text_regular_3x"
                     android:textStyle="bold" />
 
-                <TextView
+                <org.mmtextview.components.MMTextView
                     android:id="@+id/tv_food_subtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
