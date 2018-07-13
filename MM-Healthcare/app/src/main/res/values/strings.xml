@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MM Healthcare</string>
     <string name="action_settings">Settings</string>
+    <string name="health_title">Hepatitis A, B, C, D, E, G အသဲေရာင္ေရာဂါမ်ား"</string>
+    <string name="health_short_description">အသဲေရာင္ေစသည့္ (ဗိုင္းရပ္စ္) ပိုး ၆ မ်ဳိးရွိသည္။ A, B, C, D, E, G တို႔ျဖစ္ၾကသည္။ (ဗိုင္းရပ္စ္) ပိုးမွ ကူးသည့္ အျခား ေရာဂါမ်ားမွာ အေအးမိျခင္း၊ ေခြး႐ူးျပန္ျခင္း၊ အခ်ဳိ႕ေသာ ကင္ဆာေရာဂါမ်ား၊ ဦးေႏွာက္ အေျမႇးပါး ေရာင္ျခင္း၊ ေရယံု၊ ဝက္သက္ေရာဂါ၊ တုပ္ေကြး၊ ေရေၾကာက္ တို႔ျဖစ္ၾကသည္</string>
 </resources>

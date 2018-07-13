@@ -7,13 +7,13 @@ import android.view.Menu
 import android.view.MenuItem
 import com.zawzaw.padc.mmhealthcare.R
 
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_health_list.*
 
-class HomeActivity : AppCompatActivity() {
+class HealthListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_health_list)
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
