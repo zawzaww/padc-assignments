@@ -5,10 +5,16 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import org.greenrobot.eventbus.EventBus
 import com.zawzaw.padc.mmhealthcare.R
 import com.zawzaw.padc.mmhealthcare.adapters.HealthAdapter
+import com.zawzaw.padc.mmhealthcare.data.models.HealthModel
+import com.zawzaw.padc.mmhealthcare.events.ApiErrorEvent
+import com.zawzaw.padc.mmhealthcare.events.SuccessGetHealthEvent
 
 import kotlinx.android.synthetic.main.activity_health_list.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class HealthListActivity : BaseAcivity() {
 
@@ -24,10 +30,22 @@ class HealthListActivity : BaseAcivity() {
         adapter = HealthAdapter()
         rv_healthcare.adapter = adapter
 
+        HealthModel.getObjInstance()!!.loadHealthCareInfo()
+
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,6 +58,16 @@ class HealthListActivity : BaseAcivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onSuccessGetHealthList(successEvent: SuccessGetHealthEvent) {
+        adapter!!.setHealthList(successEvent.healthList)
+    }
+
+    fun onFailureGetHealthList(errorEvent: ApiErrorEvent) {
+        Snackbar.make(rv_healthcare, errorEvent.errorMessage, Snackbar.LENGTH_INDEFINITE)
+                .show()
     }
 
 }
