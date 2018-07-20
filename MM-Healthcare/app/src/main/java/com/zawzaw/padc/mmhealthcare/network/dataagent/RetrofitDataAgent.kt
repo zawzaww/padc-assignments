@@ -59,13 +59,16 @@ class RetrofitDataAgent : HealthDataAgent {
                 val healthResponse: GetHealthResponse? = response!!.body()
 
                 if (healthResponse != null && healthResponse.isResponseOK()) {
+
                     val successEvent = SuccessGetHealthEvent(healthResponse.healthCareList!!)
                     EventBus.getDefault().post(successEvent)
+
                 } else {
 
                     if (healthResponse == null) {
                         val errorEvent = ApiErrorEvent("Empty in Response!")
                         EventBus.getDefault().post(errorEvent)
+
                     } else {
                         val errorEvent = ApiErrorEvent(healthResponse.message)
                         EventBus.getDefault().post(errorEvent)

@@ -7,7 +7,8 @@ import android.view.View
  * Created by zawzaw on 13/07/2018.
  */
 
-abstract class BaseViewHolder<W>(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+abstract class BaseViewHolder<W>(itemView: View) : RecyclerView.ViewHolder(itemView),
+        View.OnClickListener {
 
     protected var mData: W? = null
 

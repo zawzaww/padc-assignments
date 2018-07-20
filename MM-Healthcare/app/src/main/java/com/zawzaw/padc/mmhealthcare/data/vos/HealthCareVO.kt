@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 class HealthCareVO {
 
     @SerializedName("id")
-    val id: Int = 0;
+    val id: Int = 0
 
     @SerializedName("title")
     val title: String = " "

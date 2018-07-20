@@ -19,7 +19,7 @@ class GetHealthResponse {
     val healthCareList: List<HealthCareVO>? = null
 
     fun isResponseOK(): Boolean {
-        return code == 200 && healthCareList != null
+        return code == 200 && healthCareList !=null
     }
 
 }

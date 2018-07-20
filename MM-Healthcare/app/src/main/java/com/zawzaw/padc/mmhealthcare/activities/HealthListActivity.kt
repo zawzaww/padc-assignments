@@ -2,10 +2,15 @@ package com.zawzaw.padc.mmhealthcare.activities
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import org.greenrobot.eventbus.EventBus
+
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+
 import com.zawzaw.padc.mmhealthcare.R
 import com.zawzaw.padc.mmhealthcare.adapters.HealthAdapter
 import com.zawzaw.padc.mmhealthcare.data.models.HealthModel
@@ -13,10 +18,8 @@ import com.zawzaw.padc.mmhealthcare.events.ApiErrorEvent
 import com.zawzaw.padc.mmhealthcare.events.SuccessGetHealthEvent
 
 import kotlinx.android.synthetic.main.activity_health_list.*
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
-class HealthListActivity : BaseAcivity() {
+class HealthListActivity : AppCompatActivity() {
 
     private var adapter: HealthAdapter? = null
 
@@ -63,11 +66,12 @@ class HealthListActivity : BaseAcivity() {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onSuccessGetHealthList(successEvent: SuccessGetHealthEvent) {
         adapter!!.setHealthList(successEvent.healthList)
+
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onFailureGetHealthList(errorEvent: ApiErrorEvent) {
-        Snackbar.make(rv_healthcare, errorEvent.errorMessage, Snackbar.LENGTH_INDEFINITE)
-                .show()
+        Snackbar.make(rv_healthcare, errorEvent.errorMessage, Snackbar.LENGTH_INDEFINITE).show()
     }
 
 }

@@ -18,8 +18,7 @@ class HealthAdapter : BaseAdapter<HealthCareViewHolder, HealthCareVO>() {
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            BaseViewHolder<HealthCareVO> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<HealthCareVO> {
         val layoutInflater: LayoutInflater = LayoutInflater.from(parent.context)
         val view: View = layoutInflater.inflate(R.layout.view_holder_healthcare, parent, false)
         return HealthCareViewHolder(view)
