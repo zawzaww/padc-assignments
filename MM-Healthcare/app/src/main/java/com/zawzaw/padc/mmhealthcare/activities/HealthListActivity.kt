@@ -19,7 +19,7 @@ import com.zawzaw.padc.mmhealthcare.events.SuccessGetHealthEvent
 
 import kotlinx.android.synthetic.main.activity_health_list.*
 
-class HealthListActivity : AppCompatActivity() {
+class HealthListActivity : BaseAcivity() {
 
     private var adapter: HealthAdapter? = null
 
