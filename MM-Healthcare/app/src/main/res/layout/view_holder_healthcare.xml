@@ -1,96 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/margin_medium"
+    android:layout_marginRight="@dimen/margin_medium"
+    android:layout_marginTop="@dimen/margin_medium"
+    app:cardElevation="@dimen/elevation_card_size">
 
-    <RelativeLayout
-        android:id="@+id/rl_container"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_title"
+        <RelativeLayout
+            android:id="@+id/rl_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium_2"
-            android:text="@string/health_title"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_heading_1x" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_short_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_title"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:ellipsize="end"
-            android:lineSpacingMultiplier="1.2"
-            android:maxLines="4"
-            android:text="@string/health_short_description"
-            android:textSize="@dimen/text_regular_2x" />
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_marginRight="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:text="@string/health_title"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_heading_1x" />
 
-        <ImageView
-            android:id="@+id/iv_hero_img"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_below="@+id/tv_short_description"
-            android:layout_marginLeft="@dimen/margin_medium_2"
-            android:layout_marginRight="@dimen/margin_medium_2"
-            android:layout_marginTop="@dimen/margin_medium"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ph_health_heroimg" />
+            <TextView
+                android:id="@+id/tv_short_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_marginRight="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.2"
+                android:maxLines="4"
+                android:text="@string/health_short_description"
+                android:textSize="@dimen/text_regular_2x" />
 
-        <TextView
-            android:id="@+id/tv_info_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/iv_hero_img"
-            android:layout_below="@+id/iv_hero_img"
-            android:layout_marginTop="@dimen/margin_small"
-            android:background="@drawable/bg_selector"
-            android:fontFamily="@font/product_sans"
-            android:text=" disease-info "
-            android:textColor="@color/color_primary" />
+            <ImageView
+                android:id="@+id/iv_hero_img"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_below="@+id/tv_short_description"
+                android:layout_marginLeft="@dimen/margin_medium_2"
+                android:layout_marginRight="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ph_health_heroimg" />
 
-        <ImageView
-            android:id="@+id/iv_author_img"
-            android:layout_width="19dp"
-            android:layout_height="19dp"
-            android:layout_alignTop="@+id/tv_info_type"
-            android:layout_below="@+id/iv_hero_img"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_toRightOf="@+id/tv_info_type"
-            android:src="@drawable/ph_author_img" />
+            <TextView
+                android:id="@+id/tv_info_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/iv_hero_img"
+                android:layout_below="@+id/iv_hero_img"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/bg_selector"
+                android:fontFamily="@font/product_sans"
+                android:text=" disease-info "
+                android:textColor="@color/color_primary" />
 
-        <TextView
-            android:id="@+id/tv_author_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/iv_author_img"
-            android:layout_marginLeft="@dimen/margin_small"
-            android:layout_toRightOf="@+id/iv_author_img"
-            android:fontFamily="@font/product_sans"
-            android:text="Dr. Zaw Zaw"
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_regular" />
+            <ImageView
+                android:id="@+id/iv_author_img"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_alignTop="@+id/tv_info_type"
+                android:layout_below="@+id/iv_hero_img"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_toRightOf="@+id/tv_info_type"
+                android:src="@drawable/ph_author_img" />
 
-        <TextView
-            android:id="@+id/tv_published_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/tv_author_name"
-            android:layout_below="@+id/iv_hero_img"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_toRightOf="@+id/tv_author_name"
-            android:fontFamily="@font/product_sans"
-            android:text="Monday, July 12, 2018 "
-            android:textColor="@color/color_primary"
-            android:textSize="@dimen/text_regular" />
+            <TextView
+                android:id="@+id/tv_author_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_author_img"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:layout_toRightOf="@+id/iv_author_img"
+                android:fontFamily="@font/product_sans"
+                android:text="Dr. Zaw Zaw"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_regular" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_published_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_author_name"
+                android:layout_below="@+id/iv_hero_img"
+                android:layout_marginLeft="@dimen/margin_medium"
+                android:layout_toRightOf="@+id/tv_author_name"
+                android:fontFamily="@font/product_sans"
+                android:text="Monday, July 12, 2018 "
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/text_regular" />
 
-</android.support.design.widget.CoordinatorLayout>
+        </RelativeLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</android.support.v7.widget.CardView>
