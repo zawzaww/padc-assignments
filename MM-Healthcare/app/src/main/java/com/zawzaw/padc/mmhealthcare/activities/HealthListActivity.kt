@@ -2,10 +2,10 @@ package com.zawzaw.padc.mmhealthcare.activities
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import org.greenrobot.eventbus.EventBus
 
 import org.greenrobot.eventbus.Subscribe
@@ -16,6 +16,7 @@ import com.zawzaw.padc.mmhealthcare.adapters.HealthAdapter
 import com.zawzaw.padc.mmhealthcare.data.models.HealthModel
 import com.zawzaw.padc.mmhealthcare.events.ApiErrorEvent
 import com.zawzaw.padc.mmhealthcare.events.SuccessGetHealthEvent
+import com.zawzaw.padc.mmhealthcare.viewpods.EmptyViewPod
 
 import kotlinx.android.synthetic.main.activity_health_list.*
 
@@ -23,17 +24,29 @@ class HealthListActivity : BaseAcivity() {
 
     private var adapter: HealthAdapter? = null
 
+    private var emptyViewPod: EmptyViewPod? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_health_list)
         setSupportActionBar(toolbar)
+
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+
+        emptyViewPod = vpEmpty as EmptyViewPod
 
         rv_healthcare.layoutManager = LinearLayoutManager(applicationContext,
                 LinearLayoutManager.VERTICAL, false)
         adapter = HealthAdapter()
         rv_healthcare.adapter = adapter
 
+        swipeRefreshLayout.isRefreshing = true
+
         HealthModel.getObjInstance()!!.loadHealthCareInfo()
+
+        swipeRefreshLayout.setOnRefreshListener {
+            HealthModel.getObjInstance()!!.loadHealthCareInfo()
+        }
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -65,13 +78,18 @@ class HealthListActivity : BaseAcivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onSuccessGetHealthList(successEvent: SuccessGetHealthEvent) {
-        adapter!!.setHealthList(successEvent.healthList)
+        vpEmpty.visibility = View.GONE
+        swipeRefreshLayout.isRefreshing = false
 
+        adapter!!.setHealthList(successEvent.healthList)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onFailureGetHealthList(errorEvent: ApiErrorEvent) {
-        Snackbar.make(rv_healthcare, errorEvent.errorMessage, Snackbar.LENGTH_INDEFINITE).show()
+        vpEmpty.visibility = View.VISIBLE
+        swipeRefreshLayout.isRefreshing = false
+
+        emptyViewPod!!.setEmptyData(getString(R.string.empty_text), R.drawable.empty_data_placeholder)
     }
 
 }

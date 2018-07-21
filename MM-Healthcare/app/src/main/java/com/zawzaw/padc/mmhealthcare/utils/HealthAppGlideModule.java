@@ -8,6 +8,6 @@ import com.bumptech.glide.module.AppGlideModule;
  */
 
 @GlideModule
-public class HealthAppGlideModule extends AppGlideModule {
+public final class HealthAppGlideModule extends AppGlideModule {
 
 }
