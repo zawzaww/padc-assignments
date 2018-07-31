@@ -31,8 +31,6 @@ class HealthListActivity : BaseAcivity() {
         setContentView(R.layout.activity_health_list)
         setSupportActionBar(toolbar)
 
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
-
         emptyViewPod = vpEmpty as EmptyViewPod
 
         rv_healthcare.layoutManager = LinearLayoutManager(applicationContext,
@@ -89,7 +87,7 @@ class HealthListActivity : BaseAcivity() {
         vpEmpty.visibility = View.VISIBLE
         swipeRefreshLayout.isRefreshing = false
 
-        emptyViewPod!!.setEmptyData(getString(R.string.empty_text), R.drawable.empty_data_placeholder)
+        emptyViewPod!!.setEmptyData(getString(R.string.empty_data_text), R.drawable.empty_data_placeholder)
     }
 
 }

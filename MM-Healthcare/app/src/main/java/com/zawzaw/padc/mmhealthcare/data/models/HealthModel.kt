@@ -54,7 +54,6 @@ class HealthModel {
 
     fun loadHealthCareInfo() {
         mDataAgent!!.loadHealthCareInfo(ACCESS_TOKEN)
-
     }
 
 }
