@@ -1,18 +1,18 @@
-package com.zawzaw.padc.mmkunyi
+package com.zawzaw.padc.mmkunyi.activities
 
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import com.zawzaw.padc.mmkunyi.R
 
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_job_posts.*
 
-class MainActivity : AppCompatActivity() {
+class JobPostsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_job_posts)
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
