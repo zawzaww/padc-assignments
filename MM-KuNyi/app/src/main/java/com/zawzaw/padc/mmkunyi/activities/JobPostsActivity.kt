@@ -5,10 +5,17 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import org.greenrobot.eventbus.EventBus
 import com.zawzaw.padc.mmkunyi.R
 import com.zawzaw.padc.mmkunyi.adapters.JobsAdapter
+import com.zawzaw.padc.mmkunyi.data.models.JobsModel
+import com.zawzaw.padc.mmkunyi.events.ApiErrorEvent
+import com.zawzaw.padc.mmkunyi.events.SuccessGetJobsEvent
 
 import kotlinx.android.synthetic.main.activity_job_posts.*
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 class JobPostsActivity : BaseActivity() {
 
@@ -24,10 +31,22 @@ class JobPostsActivity : BaseActivity() {
         jobsAdapter = JobsAdapter()
         rvJobPosts.adapter = jobsAdapter
 
+        JobsModel.getObjIntance()!!.loadJobs()
+
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        EventBus.getDefault().unregister(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -40,6 +59,16 @@ class JobPostsActivity : BaseActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onSuccessGetJobsList(successEvent: SuccessGetJobsEvent) {
+        jobsAdapter.setJobsList(successEvent.jobsList)
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onFailureGetJobsList(errorEvent: ApiErrorEvent) {
+        Snackbar.make(rvJobPosts, "No data available now!", Snackbar.LENGTH_INDEFINITE).show()
     }
 
 }
