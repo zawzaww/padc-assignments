@@ -5,21 +5,21 @@ import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import com.zawzaw.padc.mmkunyi.R
 import com.zawzaw.padc.mmkunyi.adapters.JobsAdapter
 import com.zawzaw.padc.mmkunyi.data.models.JobsModel
+import com.zawzaw.padc.mmkunyi.data.vos.JobsVO
 import com.zawzaw.padc.mmkunyi.events.ApiErrorEvent
 import com.zawzaw.padc.mmkunyi.events.SuccessGetJobsEvent
 
 import kotlinx.android.synthetic.main.activity_job_posts.*
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class JobPostsActivity : BaseActivity() {
 
-    private lateinit var jobsAdapter: JobsAdapter
+    private var adapter: JobsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,8 +28,8 @@ class JobPostsActivity : BaseActivity() {
 
         rvJobPosts.layoutManager = LinearLayoutManager(applicationContext,
                 LinearLayoutManager.VERTICAL, false)
-        jobsAdapter = JobsAdapter()
-        rvJobPosts.adapter = jobsAdapter
+        adapter = JobsAdapter(applicationContext)
+        rvJobPosts.adapter = adapter
 
         JobsModel.getObjIntance()!!.loadJobs()
 
@@ -63,12 +63,13 @@ class JobPostsActivity : BaseActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onSuccessGetJobsList(successEvent: SuccessGetJobsEvent) {
-        jobsAdapter.setJobsList(successEvent.jobsList)
+        adapter!!.appendData(successEvent.jobsList as MutableList<JobsVO>)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onFailureGetJobsList(errorEvent: ApiErrorEvent) {
-        Snackbar.make(rvJobPosts, "No data available now!", Snackbar.LENGTH_INDEFINITE).show()
+        Snackbar.make(rvJobPosts, "ERROR : " + errorEvent.errorMessage, Snackbar.LENGTH_INDEFINITE)
+                .show()
     }
 
 }

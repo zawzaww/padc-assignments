@@ -1,33 +1,50 @@
 package com.zawzaw.padc.mmkunyi.adapters
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.view.ViewGroup
+import android.view.LayoutInflater
 import com.zawzaw.padc.mmkunyi.viewholders.BaseViewHolder
-import com.zawzaw.padc.mmkunyi.viewholders.JobsViewHolder
 
 /**
  * Created by zawzaw on 03/08/2018.
  */
 
-abstract class BaseAdapter<VH, W> : RecyclerView.Adapter<BaseViewHolder<W>>() {
+abstract class BaseAdapter<T, W>(context: Context) : RecyclerView.Adapter<BaseViewHolder<W>>() {
 
-    protected var mList: List<W>? = null
+    protected var jobsData: MutableList<W>? = null
+    protected var layoutInflater: LayoutInflater? = null
+
+    val items: List<W>
+        get() {
+            val data = jobsData
+            return data?: ArrayList()
+        }
 
     init {
-        mList = ArrayList()
+        jobsData = ArrayList()
+        layoutInflater = LayoutInflater.from(context)
     }
 
     override fun getItemCount(): Int {
-        return mList!!.size
+        return jobsData!!.size
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<W>, position: Int) {
-        holder.bindData(mList!![position])
+        holder.bindData(jobsData!![position])
     }
 
-    fun setJobsList(jobsList: List<W>) {
-        mList = jobsList
+    fun setData(newData: MutableList<W>) {
+        jobsData = newData
         notifyDataSetChanged()
+    }
+
+    fun appendData(newData: List<W>) {
+        jobsData!!.addAll(newData)
+        notifyDataSetChanged()
+    }
+
+    fun getItemAt(position: Int): W? {
+        return if (position < jobsData!!.size - 1) jobsData!![position] else null
     }
 
 }

@@ -20,8 +20,8 @@ class JobsModel {
 
         private var mDataAgent: JobsDataAgent? = null
 
-        const val DUMMY_ACCESS_TOKEY: String = "b002c7e1a528b7cb460933fc2875e916"
-        const val DUMMY_PAGE: Int = 1
+//        const val DUMMY_ACCESS_TOKEY: String = "b002c7e1a528b7cb460933fc2875e916"
+//        const val DUMMY_PAGE: Int = 1
 
         fun getObjIntance(): JobsModel? {
             if (objIntance == null) {
@@ -38,7 +38,7 @@ class JobsModel {
         EventBus.getDefault().register(this)
     }
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onSuccessGetJobs(event: SuccessGetJobsEvent) {
         setJobsDataRepo(event.jobsList)
     }
@@ -48,12 +48,12 @@ class JobsModel {
             mDataRepo[jobs.jobPostId] = jobs
     }
 
-    fun getJobsById(jobsId: Int): JobsVO? {
-        return mDataRepo.get(jobsId)
+    fun getJobsById(id: Int): JobsVO? {
+        return mDataRepo[id]
     }
 
     fun loadJobs() {
-        mDataAgent!!.loadJobsList(DUMMY_ACCESS_TOKEY, DUMMY_PAGE)
+        mDataAgent!!.loadJobsList("b002c7e1a528b7cb460933fc2875e916", 1)
     }
 
 }

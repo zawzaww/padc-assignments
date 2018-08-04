@@ -53,14 +53,16 @@ class RetrofitDataAgent : JobsDataAgent {
     override fun loadJobsList(accessToken: String, page: Int) {
 
         var jobsApiCall: Call<GetJobsResponse> = mApi!!.loadJobs(accessToken, page)
+
         jobsApiCall.enqueue(object : Callback<GetJobsResponse> {
 
             override fun onResponse(call: Call<GetJobsResponse>?, response: Response<GetJobsResponse>?) {
                 val jobsResponse: GetJobsResponse? = response!!.body()
 
                 if (jobsResponse != null && jobsResponse.isResponseOk()) {
-                    val successEvent = SuccessGetJobsEvent(jobsResponse.jobsList!!)
+                    val successEvent = SuccessGetJobsEvent(jobsResponse.getJobsList())
                     EventBus.getDefault().post(successEvent)
+
                 } else {
 
                     if (jobsResponse == null) {

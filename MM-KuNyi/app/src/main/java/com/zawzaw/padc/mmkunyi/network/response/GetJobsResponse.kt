@@ -13,16 +13,27 @@ class GetJobsResponse {
     val code: Int = 0
 
     @SerializedName("message")
-    val message: String = " "
+    val message: String? = null
 
     @SerializedName("apiVersion")
-    val apiVersion: String = " "
+    val apiVersion: String? = null
+
+    @SerializedName("page")
+    val page: Int = 0
 
     @SerializedName("jobs")
-    val jobsList: List<JobsVO>? = null
+    private var jobsList: List<JobsVO>? = null
+
+    fun getJobsList(): List<JobsVO> {
+        if (jobsList == null) {
+            jobsList = ArrayList<JobsVO>()
+        }
+        val jobsListVal = jobsList
+        return jobsListVal!!
+    }
 
     fun isResponseOk(): Boolean {
-        return code == 200 && jobsList != null
+        return code == 200 && getJobsList().isNotEmpty() && jobsList != null
     }
 
 }
