@@ -18,9 +18,9 @@ class JobDurationVO {
     val totalWorkingDays: Int = 0
 
     @SerializedName("workingDaysPerWeek")
-    val workingDaysPerWeek: Int = 0
+    val workingDaysPerWeek: Double = 0.0
 
     @SerializedName("workingHoursPerDay")
-    val workingHoursPerDay: Int = 0
+    val workingHoursPerDay: Double = 0.0
 
 }

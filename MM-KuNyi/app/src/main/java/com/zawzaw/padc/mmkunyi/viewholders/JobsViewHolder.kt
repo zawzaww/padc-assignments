@@ -22,8 +22,4 @@ class JobsViewHolder(itemView: View) : BaseViewHolder<JobsVO>(itemView) {
 
     }
 
-    override fun onClick(v: View?) {
-
-    }
-
 }

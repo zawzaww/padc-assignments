@@ -6,6 +6,6 @@ package com.zawzaw.padc.mmkunyi.network.dataagent
 
 interface JobsDataAgent {
 
-    fun loadJobsList(accessToken: String, page: Int)
+    fun loadJobsList(accessToken: String, page: Int, isForceRefresh: Boolean)
 
 }

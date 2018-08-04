@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 class RequiredSkillVO {
 
     @SerializedName("skillId")
-    val skillId: Int = 0
+    val skillId: String = " "
 
     @SerializedName("skillName")
     val skillName: String = " "

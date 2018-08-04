@@ -14,8 +14,8 @@ class ApplicantVO {
     @SerializedName("canLowerOfferAmount")
     val canLowerOfferAmount: Boolean = false
 
-    @SerializedName("seekerId")
-    val seekerId: Int = 0
+    @SerializedName("seekerID")
+    val seekerID: Int = 0
 
     @SerializedName("seekerName")
     val seekerName: String = " "

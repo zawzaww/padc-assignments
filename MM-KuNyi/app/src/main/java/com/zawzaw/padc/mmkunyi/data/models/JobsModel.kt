@@ -1,12 +1,13 @@
 package com.zawzaw.padc.mmkunyi.data.models
 
-import com.zawzaw.padc.mmkunyi.data.vos.JobsVO
-import com.zawzaw.padc.mmkunyi.events.SuccessGetJobsEvent
-import com.zawzaw.padc.mmkunyi.network.dataagent.JobsDataAgent
-import com.zawzaw.padc.mmkunyi.network.dataagent.RetrofitDataAgent
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import com.zawzaw.padc.mmkunyi.data.vos.JobsVO
+import com.zawzaw.padc.mmkunyi.events.ApiErrorEvent
+import com.zawzaw.padc.mmkunyi.events.SuccessGetJobsEvent
+import com.zawzaw.padc.mmkunyi.network.dataagent.JobsDataAgent
+import com.zawzaw.padc.mmkunyi.network.dataagent.RetrofitDataAgent
 
 /**
  * Created by zawzaw on 02/08/2018.
@@ -20,8 +21,7 @@ class JobsModel {
 
         private var mDataAgent: JobsDataAgent? = null
 
-//        const val DUMMY_ACCESS_TOKEY: String = "b002c7e1a528b7cb460933fc2875e916"
-//        const val DUMMY_PAGE: Int = 1
+        const val DUMMY_ACCESS_TOKEY: String = "b002c7e1a528b7cb460933fc2875e916"
 
         fun getObjIntance(): JobsModel? {
             if (objIntance == null) {
@@ -31,6 +31,8 @@ class JobsModel {
         }
     }
 
+    private var mPage: Int = 1
+
     private var mDataRepo: HashMap<Int, JobsVO> = HashMap()
 
     private constructor() {
@@ -38,9 +40,14 @@ class JobsModel {
         EventBus.getDefault().register(this)
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onSuccessGetJobs(event: SuccessGetJobsEvent) {
-        setJobsDataRepo(event.jobsList)
+    fun loadJobsList() {
+        mDataAgent!!.loadJobsList(DUMMY_ACCESS_TOKEY, mPage, false)
+        mPage += 1
+    }
+
+    fun forceRefreshJobList() {
+        mPage = 1
+        mDataAgent!!.loadJobsList(DUMMY_ACCESS_TOKEY, mPage, true)
     }
 
     fun setJobsDataRepo(mJobsList: List<JobsVO>) {
@@ -52,8 +59,15 @@ class JobsModel {
         return mDataRepo[id]
     }
 
-    fun loadJobs() {
-        mDataAgent!!.loadJobsList("b002c7e1a528b7cb460933fc2875e916", 1)
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    fun onSuccessGetJobs(successEvent: SuccessGetJobsEvent) {
+        setJobsDataRepo(successEvent.jobsList)
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    fun onFailureGetJobs(apiErrorEvent: ApiErrorEvent) {
+
     }
 
 }

@@ -18,5 +18,4 @@ interface RetrofitJobsApi {
     fun loadJobs(
             @Field(AppConstants.PARAM_ACCESS_TOKEN) accessToken: String,
             @Field(AppConstants.PARAM_PAGE) page: Int): Call<GetJobsResponse>
-
 }

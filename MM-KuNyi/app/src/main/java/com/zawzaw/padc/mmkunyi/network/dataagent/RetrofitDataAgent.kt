@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit
 import org.greenrobot.eventbus.EventBus
 import com.zawzaw.padc.mmkunyi.utils.AppConstants
 import com.zawzaw.padc.mmkunyi.events.ApiErrorEvent
+import com.zawzaw.padc.mmkunyi.events.ForceGetJobsEvent
 import com.zawzaw.padc.mmkunyi.events.SuccessGetJobsEvent
 import com.zawzaw.padc.mmkunyi.network.RetrofitJobsApi
 import com.zawzaw.padc.mmkunyi.network.response.GetJobsResponse
@@ -22,6 +23,7 @@ import com.zawzaw.padc.mmkunyi.network.response.GetJobsResponse
 class RetrofitDataAgent : JobsDataAgent {
 
     companion object {
+
         private var objInstance: RetrofitDataAgent? = null
 
         fun getObjInstance(): RetrofitDataAgent? {
@@ -50,7 +52,7 @@ class RetrofitDataAgent : JobsDataAgent {
         mApi = retrofit.create(RetrofitJobsApi::class.java)
     }
 
-    override fun loadJobsList(accessToken: String, page: Int) {
+    override fun loadJobsList(accessToken: String, page: Int, isForceRefresh: Boolean) {
 
         var jobsApiCall: Call<GetJobsResponse> = mApi!!.loadJobs(accessToken, page)
 
@@ -60,13 +62,20 @@ class RetrofitDataAgent : JobsDataAgent {
                 val jobsResponse: GetJobsResponse? = response!!.body()
 
                 if (jobsResponse != null && jobsResponse.isResponseOk()) {
-                    val successEvent = SuccessGetJobsEvent(jobsResponse.getJobsList())
-                    EventBus.getDefault().post(successEvent)
+
+                    if (isForceRefresh) {
+                        val forceEvent = ForceGetJobsEvent(jobsResponse.jobs)
+                        EventBus.getDefault().post(forceEvent)
+                    } else {
+
+                        val successEvent = SuccessGetJobsEvent(jobsResponse.jobs)
+                        EventBus.getDefault().post(successEvent)
+                    }
 
                 } else {
 
                     if (jobsResponse == null) {
-                        val errorEvent = ApiErrorEvent("Empty in Response")
+                        val errorEvent = ApiErrorEvent("Empty in Response Body")
                         EventBus.getDefault().post(errorEvent)
 
                     } else {
@@ -77,7 +86,7 @@ class RetrofitDataAgent : JobsDataAgent {
             }
 
             override fun onFailure(call: Call<GetJobsResponse>?, t: Throwable?) {
-                val errorEvent = ApiErrorEvent(t!!.message!!)
+                val errorEvent = ApiErrorEvent(t!!.localizedMessage)
                 EventBus.getDefault().post(errorEvent)
             }
         })
