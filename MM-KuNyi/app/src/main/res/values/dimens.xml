@@ -35,4 +35,5 @@
     <dimen name="elevation_card_size">6dp</dimen>
     <dimen name="btn_width">96dp</dimen>
     <dimen name="btn_height">41dp</dimen>
+    <dimen name="job_title_width">290dp</dimen>
 </resources>

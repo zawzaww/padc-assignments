@@ -19,13 +19,13 @@
 
             <TextView
                 android:id="@+id/tvJobtTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/job_title_width"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium_2"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:text="Housekeeping"
                 android:textColor="@color/secondaryText"
-                android:textSize="@dimen/text_heading_2x" />
+                android:textSize="@dimen/text_heading_1x" />
 
             <TextView
                 android:id="@+id/tvPrice"
